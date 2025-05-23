@@ -1,0 +1,35 @@
+{
+  "name": "shisa-icon",
+  "version": "0.0.1",
+  "description": "A collection of icons.",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "icon"
+  ],
+  "homepage": "https://github.com/501A-gh/shisa-icon#readme",
+  "bugs": {
+    "url": "https://github.com/501A-gh/shisa-icon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/501A-gh/shisa-icon.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/react": "^19.1.1",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

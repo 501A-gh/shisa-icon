@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
+  h3 {
+    @apply text-lg font-semibold;
+  }
+  h4 {
+    @apply text-base font-medium text-neutral-500 dark:text-neutral-400;
+  }
+  h5 {
+    @apply text-sm font-medium text-neutral-500 dark:text-neutral-400;
+  }
+  h6 {
+    @apply text-xs font-medium text-neutral-500 dark:text-neutral-400;
+  }
+
+  a {
+    @apply text-neutral-500 dark:text-neutral-400 hover:opacity-80 underline underline-offset-4 decoration-neutral-300 dark:decoration-neutral-700;
+  }
+}
