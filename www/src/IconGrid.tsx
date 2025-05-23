@@ -1,10 +1,13 @@
 import {
   ShisaAppearance,
+  ShisaArrowDown,
   ShisaArrowLeft,
   ShisaArrowRight,
+  ShisaArrowUp,
   ShisaAudio,
   ShisaAudioFile,
   ShisaBookmark,
+  ShisaBox,
   ShisaCheck,
   ShisaCheckedBox,
   ShisaChevronDown,
@@ -97,6 +100,12 @@ export default function IconGrid() {
         <ShisaAppearance name="ShisaAppearance" />
       </button>
       <button
+        title="ShisaArrowDown"
+        onClick={() => copyToClipboard("ShisaArrowDown")}
+      >
+        <ShisaArrowDown name="ShisaArrowDown" />
+      </button>
+      <button
         title="ShisaArrowLeft"
         onClick={() => copyToClipboard("ShisaArrowLeft")}
       >
@@ -107,6 +116,12 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaArrowRight")}
       >
         <ShisaArrowRight name="ShisaArrowRight" />
+      </button>
+      <button
+        title="ShisaArrowUp"
+        onClick={() => copyToClipboard("ShisaArrowUp")}
+      >
+        <ShisaArrowUp name="ShisaArrowUp" />
       </button>
       <button title="ShisaAudio" onClick={() => copyToClipboard("ShisaAudio")}>
         <ShisaAudio name="ShisaAudio" />
@@ -122,6 +137,9 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaBookmark")}
       >
         <ShisaBookmark name="ShisaBookmark" />
+      </button>
+      <button title="ShisaBox" onClick={() => copyToClipboard("ShisaBox")}>
+        <ShisaBox name="ShisaBox" />
       </button>
       <button title="ShisaCheck" onClick={() => copyToClipboard("ShisaCheck")}>
         <ShisaCheck name="ShisaCheck" />

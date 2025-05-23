@@ -1,9 +1,12 @@
 export { default as ShisaAppearance } from "./icons/appearance";
+export { default as ShisaArrowDown } from "./icons/arrow-down";
 export { default as ShisaArrowLeft } from "./icons/arrow-left";
 export { default as ShisaArrowRight } from "./icons/arrow-right";
+export { default as ShisaArrowUp } from "./icons/arrow-up";
 export { default as ShisaAudio } from "./icons/audio";
 export { default as ShisaAudioFile } from "./icons/audio-file";
 export { default as ShisaBookmark } from "./icons/bookmark";
+export { default as ShisaBox } from "./icons/box";
 export { default as ShisaCheck } from "./icons/check";
 export { default as ShisaCheckedBox } from "./icons/checked-box";
 export { default as ShisaChevronDown } from "./icons/chevron-down";
