@@ -1,3 +1,5 @@
+![Banner Image](/www/public/banner.png)
+
 # Shisa Iconography
 
 A collection of icons designed by [501A](https://501A.vercel.app).
