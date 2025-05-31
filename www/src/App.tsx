@@ -10,8 +10,12 @@ function App() {
         <meta name="description" content="A collection of icons." />
         <meta property="og:title" content="Shisa Iconography" />
         <meta property="og:description" content="A collection of icons." />
-        <meta property="og:image" content="/public/og.png" />
+        <meta property="og:image" content="/og.png" />
         <meta property="og:url" content="https://501A.vercel.app" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Shisa Iconography" />
+        <meta name="twitter:description" content="A collection of icons." />
+        <meta name="twitter:image" content="/og.png" />
       </Helmet>
       <main className="w-full min-h-screen flex flex-col items-center justify-between">
         <header className="mx-auto max-w-96 py-12 grid gap-6">
