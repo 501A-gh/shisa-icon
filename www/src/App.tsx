@@ -10,7 +10,7 @@ function App() {
         <meta name="description" content="A collection of icons." />
         <meta property="og:title" content="Shisa Iconography" />
         <meta property="og:description" content="A collection of icons." />
-        <meta property="og:image" content="/public/banner.png" />
+        <meta property="og:image" content="/public/og.png" />
         <meta property="og:url" content="https://501A.vercel.app" />
       </Helmet>
       <main className="w-full min-h-screen flex flex-col items-center justify-between">
