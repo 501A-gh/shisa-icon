@@ -19,7 +19,7 @@ npm install shisa-icon
 Import the icon components you need:
 
 ```javascript
-import { ShisaPointerIcon } from "shisa-icon";
+import { ShisaPointer } from "shisa-icon";
 ```
 
 ### Displaying an Icon
@@ -28,7 +28,7 @@ Icons scale with the surrounding text (`em` units) and inherit the current text 
 
 ```html
 <div class="text-lg text-black dark:text-white">
-  <ShisaPointerIcon />
+  <ShisaPointer />
 </div>
 ```
 
@@ -48,5 +48,5 @@ All standard `SVGProps<SVGSVGElement>` are supported.
 This renders a blue icon scaled to match 2xl text size.
 
 ```html
-<ShisaPointerIcon className="text-blue-500 text-2xl" />
+<ShisaPointer className="text-blue-500 text-2xl" />
 ```
