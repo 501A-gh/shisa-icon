@@ -4,7 +4,7 @@ import Shisa from "../shisa";
 const Mail: React.FC<SVGProps<SVGSVGElement>> = ({ ...props }) => (
   <Shisa {...props}>
     <rect x="2" y="4" width="20" height="16" rx="3" />
-    <path d="M2 7L10.1259 13.5007C11.2216 14.3773 12.7784 14.3773 13.8741 13.5007L22 7" />
+    <path d="M2 7L10.2796 12.7957C11.3126 13.5188 12.6874 13.5188 13.7204 12.7957L22 7" />
   </Shisa>
 );
 

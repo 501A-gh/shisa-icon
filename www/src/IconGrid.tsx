@@ -8,6 +8,11 @@ import {
   ShisaAudioFile,
   ShisaBookmark,
   ShisaBox,
+  ShisaChat,
+  ShisaChatCheck,
+  ShisaChatCross,
+  ShisaChatMinus,
+  ShisaChatPlus,
   ShisaCheck,
   ShisaCheckedBox,
   ShisaChevronDown,
@@ -15,12 +20,16 @@ import {
   ShisaChevronRight,
   ShisaChevronUp,
   ShisaChip,
+  ShisaClock,
   ShisaCloud,
   ShisaCollapse,
   ShisaCopy,
   ShisaCross,
   ShisaCursor,
   ShisaDark,
+  ShisaDatabase,
+  ShisaDatabaseMinus,
+  ShisaDatabasePlus,
   ShisaDocument,
   ShisaDoubleCircle,
   ShisaDraw,
@@ -41,6 +50,12 @@ import {
   ShisaInbox,
   ShisaInfo,
   ShisaKeyboard,
+  ShisaKeyframe,
+  ShisaKeyframeMinus,
+  ShisaKeyframePlus,
+  ShisaLayoutExpanded,
+  ShisaLayoutSidebar,
+  ShisaLayoutSplit,
   ShisaLight,
   ShisaLink,
   ShisaLock,
@@ -61,10 +76,12 @@ import {
   ShisaPointer,
   ShisaRedo,
   ShisaRefresh,
+  ShisaReload,
   ShisaReplay,
   ShisaSearch,
   ShisaSettings,
   ShisaSmartphone,
+  ShisaSparkle,
   ShisaSpinner,
   ShisaSwap,
   ShisaTimer,
@@ -72,11 +89,15 @@ import {
   ShisaTreeBranch,
   ShisaUndo,
   ShisaUser,
+  ShisaUserMinus,
   ShisaUserPlus,
   ShisaUsers,
   ShisaVariables,
+  ShisaVerified,
   ShisaVideo,
   ShisaVideoFile,
+  ShisaWindow,
+  ShisaWindows,
   ShisaWrite,
 } from "shisa-icon";
 import { toast } from "sonner";
@@ -92,7 +113,7 @@ export default function IconGrid() {
   };
 
   return (
-    <div className="grid grid-cols-6 sm:grid-cols-12 gap-6 text-xl sm:text-2xl w-fit mx-auto max-w-7xl p-6 *:cursor-copy *:transition-transform *:active:scale-95">
+    <div className="grid grid-cols-6 sm:grid-cols-12 gap-0.5 text-xl sm:text-2xl w-fit mx-auto max-w-7xl p-6 *:cursor-copy *:transition-transform *:p-3 *:rounded-xl *:active:scale-95 *:hover:bg-zinc-100 dark:*:hover:bg-zinc-800">
       <button
         title="ShisaAppearance"
         onClick={() => copyToClipboard("ShisaAppearance")}
@@ -141,6 +162,33 @@ export default function IconGrid() {
       <button title="ShisaBox" onClick={() => copyToClipboard("ShisaBox")}>
         <ShisaBox name="ShisaBox" />
       </button>
+      <button title="ShisaChat" onClick={() => copyToClipboard("ShisaChat")}>
+        <ShisaChat name="ShisaChat" />
+      </button>
+      <button
+        title="ShisaChatCheck"
+        onClick={() => copyToClipboard("ShisaChatCheck")}
+      >
+        <ShisaChatCheck name="ShisaChatCheck" />
+      </button>
+      <button
+        title="ShisaChatCross"
+        onClick={() => copyToClipboard("ShisaChatCross")}
+      >
+        <ShisaChatCross name="ShisaChatCross" />
+      </button>
+      <button
+        title="ShisaChatMinus"
+        onClick={() => copyToClipboard("ShisaChatMinus")}
+      >
+        <ShisaChatMinus name="ShisaChatMinus" />
+      </button>
+      <button
+        title="ShisaChatPlus"
+        onClick={() => copyToClipboard("ShisaChatPlus")}
+      >
+        <ShisaChatPlus name="ShisaChatPlus" />
+      </button>
       <button title="ShisaCheck" onClick={() => copyToClipboard("ShisaCheck")}>
         <ShisaCheck name="ShisaCheck" />
       </button>
@@ -177,6 +225,9 @@ export default function IconGrid() {
       <button title="ShisaChip" onClick={() => copyToClipboard("ShisaChip")}>
         <ShisaChip name="ShisaChip" />
       </button>
+      <button title="ShisaClock" onClick={() => copyToClipboard("ShisaClock")}>
+        <ShisaClock name="ShisaClock" />
+      </button>
       <button title="ShisaCloud" onClick={() => copyToClipboard("ShisaCloud")}>
         <ShisaCloud name="ShisaCloud" />
       </button>
@@ -200,6 +251,24 @@ export default function IconGrid() {
       </button>
       <button title="ShisaDark" onClick={() => copyToClipboard("ShisaDark")}>
         <ShisaDark name="ShisaDark" />
+      </button>
+      <button
+        title="ShisaDatabase"
+        onClick={() => copyToClipboard("ShisaDatabase")}
+      >
+        <ShisaDatabase name="ShisaDatabase" />
+      </button>
+      <button
+        title="ShisaDatabaseMinus"
+        onClick={() => copyToClipboard("ShisaDatabaseMinus")}
+      >
+        <ShisaDatabaseMinus name="ShisaDatabaseMinus" />
+      </button>
+      <button
+        title="ShisaDatabasePlus"
+        onClick={() => copyToClipboard("ShisaDatabasePlus")}
+      >
+        <ShisaDatabasePlus name="ShisaDatabasePlus" />
       </button>
       <button
         title="ShisaDocument"
@@ -294,6 +363,42 @@ export default function IconGrid() {
       >
         <ShisaKeyboard name="ShisaKeyboard" />
       </button>
+      <button
+        title="ShisaKeyframe"
+        onClick={() => copyToClipboard("ShisaKeyframe")}
+      >
+        <ShisaKeyframe name="ShisaKeyframe" />
+      </button>
+      <button
+        title="ShisaKeyframeMinus"
+        onClick={() => copyToClipboard("ShisaKeyframeMinus")}
+      >
+        <ShisaKeyframeMinus name="ShisaKeyframeMinus" />
+      </button>
+      <button
+        title="ShisaKeyframePlus"
+        onClick={() => copyToClipboard("ShisaKeyframePlus")}
+      >
+        <ShisaKeyframePlus name="ShisaKeyframePlus" />
+      </button>
+      <button
+        title="ShisaLayoutExpanded"
+        onClick={() => copyToClipboard("ShisaLayoutExpanded")}
+      >
+        <ShisaLayoutExpanded name="ShisaLayoutExpanded" />
+      </button>
+      <button
+        title="ShisaLayoutSidebar"
+        onClick={() => copyToClipboard("ShisaLayoutSidebar")}
+      >
+        <ShisaLayoutSidebar name="ShisaLayoutSidebar" />
+      </button>
+      <button
+        title="ShisaLayoutSplit"
+        onClick={() => copyToClipboard("ShisaLayoutSplit")}
+      >
+        <ShisaLayoutSplit name="ShisaLayoutSplit" />
+      </button>
       <button title="ShisaLight" onClick={() => copyToClipboard("ShisaLight")}>
         <ShisaLight name="ShisaLight" />
       </button>
@@ -385,6 +490,12 @@ export default function IconGrid() {
         <ShisaRefresh name="ShisaRefresh" />
       </button>
       <button
+        title="ShisaReload"
+        onClick={() => copyToClipboard("ShisaReload")}
+      >
+        <ShisaReload name="ShisaReload" />
+      </button>
+      <button
         title="ShisaReplay"
         onClick={() => copyToClipboard("ShisaReplay")}
       >
@@ -407,6 +518,12 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaSmartphone")}
       >
         <ShisaSmartphone name="ShisaSmartphone" />
+      </button>
+      <button
+        title="ShisaSparkle"
+        onClick={() => copyToClipboard("ShisaSparkle")}
+      >
+        <ShisaSparkle name="ShisaSparkle" />
       </button>
       <button
         title="ShisaSpinner"
@@ -441,6 +558,12 @@ export default function IconGrid() {
       >
         <ShisaUserPlus name="ShisaUserPlus" />
       </button>
+      <button
+        title="ShisaUserMinus"
+        onClick={() => copyToClipboard("ShisaUserMinus")}
+      >
+        <ShisaUserMinus name="ShisaUserMinus" />
+      </button>
       <button title="ShisaUsers" onClick={() => copyToClipboard("ShisaUsers")}>
         <ShisaUsers name="ShisaUsers" />
       </button>
@@ -450,6 +573,12 @@ export default function IconGrid() {
       >
         <ShisaVariables name="ShisaVariables" />
       </button>
+      <button
+        title="ShisaVerified"
+        onClick={() => copyToClipboard("ShisaVerified")}
+      >
+        <ShisaVerified name="ShisaVerified" />
+      </button>
       <button title="ShisaVideo" onClick={() => copyToClipboard("ShisaVideo")}>
         <ShisaVideo name="ShisaVideo" />
       </button>
@@ -458,6 +587,18 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaVideoFile")}
       >
         <ShisaVideoFile name="ShisaVideoFile" />
+      </button>
+      <button
+        title="ShisaWindow"
+        onClick={() => copyToClipboard("ShisaWindow")}
+      >
+        <ShisaWindow name="ShisaWindow" />
+      </button>
+      <button
+        title="ShisaWindows"
+        onClick={() => copyToClipboard("ShisaWindows")}
+      >
+        <ShisaWindows name="ShisaWindows" />
       </button>
       <button title="ShisaWrite" onClick={() => copyToClipboard("ShisaWrite")}>
         <ShisaWrite name="ShisaWrite" />
