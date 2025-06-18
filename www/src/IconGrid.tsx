@@ -32,6 +32,7 @@ import {
   ShisaDatabasePlus,
   ShisaDocument,
   ShisaDoubleCircle,
+  ShisaDownload,
   ShisaDraw,
   ShisaEdit,
   ShisaExpand,
@@ -80,6 +81,7 @@ import {
   ShisaReplay,
   ShisaSearch,
   ShisaSettings,
+  ShisaShare,
   ShisaSmartphone,
   ShisaSparkle,
   ShisaSpinner,
@@ -281,6 +283,12 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaDoubleCircle")}
       >
         <ShisaDoubleCircle name="ShisaDoubleCircle" />
+      </button>
+      <button
+        title="ShisaDownload"
+        onClick={() => copyToClipboard("ShisaDownload")}
+      >
+        <ShisaDownload name="ShisaDownload" />
       </button>
       <button title="ShisaDraw" onClick={() => copyToClipboard("ShisaDraw")}>
         <ShisaDraw name="ShisaDraw" />
@@ -512,6 +520,9 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaSettings")}
       >
         <ShisaSettings name="ShisaSettings" />
+      </button>
+      <button title="ShisaShare" onClick={() => copyToClipboard("ShisaShare")}>
+        <ShisaShare name="ShisaShare" />
       </button>
       <button
         title="ShisaSmartphone"
