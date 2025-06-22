@@ -69,6 +69,8 @@ import {
   ShisaMoniter,
   ShisaMoreHorizontal,
   ShisaMoreVertical,
+  ShisaPaddingHorizontal,
+  ShisaPaddingVertical,
   ShisaPause,
   ShisaPin,
   ShisaPlay,
@@ -79,9 +81,11 @@ import {
   ShisaRefresh,
   ShisaReload,
   ShisaReplay,
+  ShisaRotate,
   ShisaSearch,
   ShisaSettings,
   ShisaShare,
+  ShisaSize,
   ShisaSmartphone,
   ShisaSparkle,
   ShisaSpinner,
@@ -464,6 +468,18 @@ export default function IconGrid() {
       >
         <ShisaMoreVertical name="ShisaMoreVertical" />
       </button>
+      <button
+        title="ShisaPaddingHorizontal"
+        onClick={() => copyToClipboard("ShisaPaddingHorizontal")}
+      >
+        <ShisaPaddingHorizontal name="ShisaPaddingHorizontal" />
+      </button>
+      <button
+        title="ShisaPaddingVertical"
+        onClick={() => copyToClipboard("ShisaPaddingVertical")}
+      >
+        <ShisaPaddingVertical name="ShisaPaddingVertical" />
+      </button>
       <button title="ShisaPause" onClick={() => copyToClipboard("ShisaPause")}>
         <ShisaPause name="ShisaPause" />
       </button>
@@ -508,6 +524,15 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaReplay")}
       >
         <ShisaReplay name="ShisaReplay" />
+      </button>
+      <button
+        title="ShisaRotate"
+        onClick={() => copyToClipboard("ShisaRotate")}
+      >
+        <ShisaRotate name="ShisaRotate" />
+      </button>
+      <button title="ShisaSize" onClick={() => copyToClipboard("ShisaSize")}>
+        <ShisaSize name="ShisaSize" />
       </button>
       <button
         title="ShisaSearch"
