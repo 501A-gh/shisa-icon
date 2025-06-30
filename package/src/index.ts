@@ -1,3 +1,4 @@
+export { default as Shisa } from "./shisa";
 export { default as ShisaAppearance } from "./icons/appearance";
 export { default as ShisaArrowDown } from "./icons/arrow-down";
 export { default as ShisaArrowLeft } from "./icons/arrow-left";
