@@ -1,5 +1,4 @@
 import {
-  Shisa,
   ShisaAppearance,
   ShisaArrowDown,
   ShisaArrowLeft,
@@ -121,12 +120,6 @@ export default function IconGrid() {
 
   return (
     <div className="grid grid-cols-6 sm:grid-cols-12 gap-0.5 text-xl sm:text-2xl w-fit mx-auto max-w-7xl p-6 *:cursor-copy *:transition-transform *:p-3 *:rounded-xl *:active:scale-95 *:hover:bg-zinc-100 dark:*:hover:bg-zinc-800">
-      <button>
-        <Shisa>
-          <path d="M1 19.5088L14.0008 8.72087C14.0008 8.72087 15.1073 7.85415 15.1073 6.5264C15.1073 4.84828 13.9824 4 12.5993 4C11.331 4 10.1282 4.84828 10.1282 6.5264C10.1282 11.2939 10.1282 13.8474 10.1282 17.5725C10.1282 18.9556 9.02179 20.047 7.63873 20.062C6.25566 20.0771 5.1492 18.9556 5.1492 17.5725C5.1492 16.1894 5.9606 14.8064 7.63873 14.8064C13.4216 14.8064 23 14.8801 23 14.8801" />
-          <path d="M18 4V20" />
-        </Shisa>
-      </button>
       <button
         title="ShisaAppearance"
         onClick={() => copyToClipboard("ShisaAppearance")}
