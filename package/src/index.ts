@@ -100,6 +100,7 @@ export { default as ShisaSwap } from "./icons/swap";
 export { default as ShisaTimer } from "./icons/timer";
 export { default as ShisaTrash } from "./icons/trash";
 export { default as ShisaTreeBranch } from "./icons/tree-branch";
+export { default as ShisaType } from "./icons/type";
 export { default as ShisaUnderline } from "./icons/underline";
 export { default as ShisaUndo } from "./icons/undo";
 export { default as ShisaUser } from "./icons/user";
