@@ -23,6 +23,7 @@ import {
   ShisaChevronRight,
   ShisaChevronUp,
   ShisaChip,
+  ShisaCircle,
   ShisaClearFormatting,
   ShisaClock,
   ShisaCloud,
@@ -49,6 +50,7 @@ import {
   ShisaFolderPlus,
   ShisaGlobe,
   ShisaGrid,
+  ShisaHexagon,
   ShisaHighlight,
   ShisaHistory,
   ShisaHome,
@@ -77,6 +79,8 @@ import {
   ShisaMoreVertical,
   ShisaPaddingHorizontal,
   ShisaPaddingVertical,
+  ShisaParallelogram,
+  ShisaPentagon,
   ShisaPause,
   ShisaPin,
   ShisaPlay,
@@ -94,11 +98,14 @@ import {
   ShisaSize,
   ShisaSmartphone,
   ShisaSparkle,
+  ShisaStar,
   ShisaSpinner,
   ShisaSwap,
   ShisaTimer,
+  ShisaTrapezoid,
   ShisaTrash,
   ShisaTreeBranch,
+  ShisaTriangle,
   ShisaUnderline,
   ShisaUndo,
   ShisaUser,
@@ -251,6 +258,12 @@ export default function IconGrid() {
         <ShisaChip name="ShisaChip" />
       </button>
       <button
+        title="ShisaCircle"
+        onClick={() => copyToClipboard("ShisaCircle")}
+      >
+        <ShisaCircle name="ShisaCircle" />
+      </button>
+      <button
         title="ShisaClearFormatting"
         onClick={() => copyToClipboard("ShisaClearFormatting")}
       >
@@ -375,6 +388,12 @@ export default function IconGrid() {
       </button>
       <button title="ShisaGrid" onClick={() => copyToClipboard("ShisaGrid")}>
         <ShisaGrid name="ShisaGrid" />
+      </button>
+      <button
+        title="ShisaHexagon"
+        onClick={() => copyToClipboard("ShisaHexagon")}
+      >
+        <ShisaHexagon name="ShisaHexagon" />
       </button>
       <button
         title="ShisaHighlight"
@@ -517,6 +536,18 @@ export default function IconGrid() {
       >
         <ShisaPaddingVertical name="ShisaPaddingVertical" />
       </button>
+      <button
+        title="ShisaParallelogram"
+        onClick={() => copyToClipboard("ShisaParallelogram")}
+      >
+        <ShisaParallelogram name="ShisaParallelogram" />
+      </button>
+      <button
+        title="ShisaPentagon"
+        onClick={() => copyToClipboard("ShisaPentagon")}
+      >
+        <ShisaPentagon name="ShisaPentagon" />
+      </button>
       <button title="ShisaPause" onClick={() => copyToClipboard("ShisaPause")}>
         <ShisaPause name="ShisaPause" />
       </button>
@@ -598,6 +629,9 @@ export default function IconGrid() {
       >
         <ShisaSparkle name="ShisaSparkle" />
       </button>
+      <button title="ShisaStar" onClick={() => copyToClipboard("ShisaStar")}>
+        <ShisaStar name="ShisaStar" />
+      </button>
       <button
         title="ShisaSpinner"
         onClick={() => copyToClipboard("ShisaSpinner")}
@@ -610,6 +644,12 @@ export default function IconGrid() {
       <button title="ShisaTimer" onClick={() => copyToClipboard("ShisaTimer")}>
         <ShisaTimer name="ShisaTimer" />
       </button>
+      <button
+        title="ShisaTrapezoid"
+        onClick={() => copyToClipboard("ShisaTrapezoid")}
+      >
+        <ShisaTrapezoid name="ShisaTrapezoid" />
+      </button>
       <button title="ShisaTrash" onClick={() => copyToClipboard("ShisaTrash")}>
         <ShisaTrash name="ShisaTrash" />
       </button>
@@ -618,6 +658,12 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaTreeBranch")}
       >
         <ShisaTreeBranch name="ShisaTreeBranch" />
+      </button>
+      <button
+        title="ShisaTriangle"
+        onClick={() => copyToClipboard("ShisaTriangle")}
+      >
+        <ShisaTriangle name="ShisaTriangle" />
       </button>
       <button
         title="ShisaUnderline"
