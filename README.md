@@ -91,4 +91,10 @@ export default CustomIcon;
 
 ### Automating Figma SVG to Shisa TSX Conversion
 
-You can use an AI agentic tools like VScode's agent mode or Cursor to help automate the conversion of Figma SVGs into Shisa components. Attach a link to this document: [LLM_Figma_To_Shisa.md](LLM_Figma_To_Shisa.md) with reference to the Figma exported SVGs to produce consistent, clean Shisa-style TSX components.
+You can use an AI agentic tools like VScode's agent mode or Cursor to help automate the conversion of Figma SVGs into Shisa components. Attach a link to this document: [LLM_Figma_To_Shisa.md](Figma_To_Shisa.md) with reference to the Figma exported SVGs to produce consistent, clean Shisa-style TSX components.
+
+On VScode agent mode, you type the following prompt to fetch the document:
+
+```
+#fetch https://raw.githubusercontent.com/501A-gh/shisa-icon/refs/heads/main/Figma_To_Shisa.md
+```
