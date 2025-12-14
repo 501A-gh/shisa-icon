@@ -88,3 +88,7 @@ export default CustomIcon;
 > Note: the `Shisa` wrapper applies defaults for sizing, stroke and color. That means you should not set top-level SVG attributes on the component itself (for example `width`, `height`, `stroke`, `strokeWidth`, or `fill`).
 
 > However, the icon's geometry — the actual shape data inside the component — must include coordinates and sizes where appropriate (for example a `<rect x="1" y="1" width="22" height="22"/>` or a `<path d="..."/>`). In short: do not set root SVG sizing/paint attributes, but do include shape coordinates and sizes in your child elements (these define the glyph). Shisa icons inherit `currentColor` and scale with surrounding text.
+
+### Automating Figma SVG to Shisa TSX Conversion
+
+You can use an AI agentic tools like VScode's agent mode or Cursor to help automate the conversion of Figma SVGs into Shisa components. Attach a link to this document: [LLM_Figma_To_Shisa.md](LLM_Figma_To_Shisa.md) with reference to the Figma exported SVGs to produce consistent, clean Shisa-style TSX components.
