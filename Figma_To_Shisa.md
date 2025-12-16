@@ -15,6 +15,15 @@ Convert a Figma-exported SVG into a `tsx` component that uses the `Shisa` wrappe
 7. Move non-default visual preferences to the `Shisa` wrapper — for example, if the original used rounded caps, add `strokeLinecap="round"` to `Shisa`. Do NOT copy `stroke`/`strokeWidth`/`fill` to the wrapper unless absolutely required; prefer package defaults (`stroke="currentColor"`, `strokeWidth={2}`).
 8. Ensure the output component accepts standard `SVGProps<SVGSVGElement>` and spreads `...props` onto `Shisa` so callers can override as needed.
 9. Keep the same geometry; do not scale or translate coordinates unless the SVG's `viewBox` indicates non-24x24 artwork — if the artwork is not 24x24, add a comment and preserve `viewBox` so maintainers can review scaling.
+10. Small-icon fill exception: base this decision on the dominant glyph's geometry (the bounding box of all shape elements), not the overall `viewBox`. If the dominant glyph bounding box width and height are both <= 4 units, produce a filled icon instead of a stroked icon. Deterministic measurement rule for LLMs/scripts:
+
+- Compute minX/minY and maxX/maxY across all shapes using their geometry attributes (`d` commands, `x`/`y`/`width`/`height` for rects, `cx`/`cy`/`r` for circles, points for polygons, etc.).
+- glyphWidth = maxX - minX; glyphHeight = maxY - minY.
+- If glyphWidth <= 4 AND glyphHeight <= 4 then treat as a small glyph and convert to a filled icon.
+  In that case:
+- Remove any `stroke`/`stroke-width` attributes from the shapes.
+- Set `fill="currentColor"` on the shape elements (or set `fill` on `Shisa`) and do not add `stroke` or `strokeWidth` to the wrapper.
+- Add a short comment in the generated file noting the icon was converted to a filled glyph because its dominant glyph bounding box is small.
 
 ## Output format (TSX component template)
 
