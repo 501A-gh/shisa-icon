@@ -11,6 +11,7 @@ import {
   ShisaBookmark,
   ShisaBox,
   ShisaBuilding,
+  ShisaCalendar,
   ShisaChat,
   ShisaChatCheck,
   ShisaChatCross,
@@ -43,13 +44,19 @@ import {
   ShisaExpand,
   ShisaExternal,
   ShisaEye,
+  ShisaFileDoc,
+  ShisaFilePdf,
+  ShisaFilePpt,
+  ShisaFileXls,
   ShisaFilter,
   ShisaFolder,
   ShisaFolderMinus,
+  ShisaFolderMove,
   ShisaFolderOpen,
   ShisaFolderPlus,
   ShisaGlobe,
   ShisaGrid,
+  ShisaHamburgerMenu,
   ShisaHexagon,
   ShisaHighlight,
   ShisaHistory,
@@ -79,6 +86,7 @@ import {
   ShisaMoreVertical,
   ShisaPaddingHorizontal,
   ShisaPaddingVertical,
+  ShisaPageBreak,
   ShisaParallelogram,
   ShisaPentagon,
   ShisaPause,
@@ -193,6 +201,12 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaBuilding")}
       >
         <ShisaBuilding name="ShisaBuilding" />
+      </button>
+      <button
+        title="ShisaCalendar"
+        onClick={() => copyToClipboard("ShisaCalendar")}
+      >
+        <ShisaCalendar name="ShisaCalendar" />
       </button>
       <button title="ShisaChat" onClick={() => copyToClipboard("ShisaChat")}>
         <ShisaChat name="ShisaChat" />
@@ -354,6 +368,30 @@ export default function IconGrid() {
         <ShisaEye name="ShisaEye" />
       </button>
       <button
+        title="ShisaFileDoc"
+        onClick={() => copyToClipboard("ShisaFileDoc")}
+      >
+        <ShisaFileDoc name="ShisaFileDoc" />
+      </button>
+      <button
+        title="ShisaFilePdf"
+        onClick={() => copyToClipboard("ShisaFilePdf")}
+      >
+        <ShisaFilePdf name="ShisaFilePdf" />
+      </button>
+      <button
+        title="ShisaFilePpt"
+        onClick={() => copyToClipboard("ShisaFilePpt")}
+      >
+        <ShisaFilePpt name="ShisaFilePpt" />
+      </button>
+      <button
+        title="ShisaFileXls"
+        onClick={() => copyToClipboard("ShisaFileXls")}
+      >
+        <ShisaFileXls name="ShisaFileXls" />
+      </button>
+      <button
         title="ShisaFilter"
         onClick={() => copyToClipboard("ShisaFilter")}
       >
@@ -372,6 +410,12 @@ export default function IconGrid() {
         <ShisaFolderMinus name="ShisaFolderMinus" />
       </button>
       <button
+        title="ShisaFolderMove"
+        onClick={() => copyToClipboard("ShisaFolderMove")}
+      >
+        <ShisaFolderMove name="ShisaFolderMove" />
+      </button>
+      <button
         title="ShisaFolderOpen"
         onClick={() => copyToClipboard("ShisaFolderOpen")}
       >
@@ -388,6 +432,12 @@ export default function IconGrid() {
       </button>
       <button title="ShisaGrid" onClick={() => copyToClipboard("ShisaGrid")}>
         <ShisaGrid name="ShisaGrid" />
+      </button>
+      <button
+        title="ShisaHamburgerMenu"
+        onClick={() => copyToClipboard("ShisaHamburgerMenu")}
+      >
+        <ShisaHamburgerMenu name="ShisaHamburgerMenu" />
       </button>
       <button
         title="ShisaHexagon"
@@ -535,6 +585,12 @@ export default function IconGrid() {
         onClick={() => copyToClipboard("ShisaPaddingVertical")}
       >
         <ShisaPaddingVertical name="ShisaPaddingVertical" />
+      </button>
+      <button
+        title="ShisaPageBreak"
+        onClick={() => copyToClipboard("ShisaPageBreak")}
+      >
+        <ShisaPageBreak name="ShisaPageBreak" />
       </button>
       <button
         title="ShisaParallelogram"
