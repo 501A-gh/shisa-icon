@@ -13,7 +13,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "shisa-icon": "^0.1.10",
+    "shisa-icon": "^0.12.0",
     "sonner": "^2.0.7",
     "tailwindcss": "^4.1.18"
   },

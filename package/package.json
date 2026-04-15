@@ -1,6 +1,6 @@
 {
   "name": "shisa-icon",
-  "version": "0.1.10",
+  "version": "0.12.0",
   "description": "A collection of icons.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
