@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Opencode
+.opencode/
+
+link.sh
+unlink.sh

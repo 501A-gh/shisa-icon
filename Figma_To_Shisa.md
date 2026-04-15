@@ -1,29 +1,30 @@
 # Convert Figma SVG to Shisa TSX component
 
-## Goal
+This skill provides instructions for converting a Figma-exported SVG file into a React TSX component for the Shisa icon library.
 
-Convert a Figma-exported SVG into a `tsx` component that uses the `Shisa` wrapper and contains only the icon's shape data (paths/rects/etc.). The component must not set top-level SVG paint/size attributes — those are provided by `Shisa`.
+## Workflow
+
+When asked to convert an icon (e.g., `@package/src/icons/icon-name.svg`), follow these steps:
+1. **Read** the original `.svg` file to understand its geometry and attributes.
+2. **Create** the new `.tsx` component file in the same directory (`package/src/icons/icon-name.tsx`), applying the transformation rules below.
+3. **Update** the main index file (`package/src/index.ts`) to export the new component. Make sure to place the export in alphabetical order.
+4. **Delete** the original `.svg` file.
 
 ## High-level rules
 
 1. Parse the input SVG string and extract the inner shape elements (children of the root `<svg>`). Keep their geometry (attributes like `d`, `x`, `y`, `width`, `height`, `rx`, etc.) exactly as-is.
-2. Remove all root-level attributes from `<svg>` except `viewBox` if it exists and is meaningful. Prefer leaving `viewBox="0 0 24 24"` if present; otherwise do not invent a `viewBox` unless you can safely infer it.
-3. Strip any `stroke`, `stroke-width`, `stroke-linecap`, `stroke-linejoin`, `fill`, `fill-rule`, `style`, `class`, `id`, and inline `transform` attributes from child shape elements — these are presentation attributes. The exception: keep `transform` only if it is essential to the shape and cannot be flattened safely by the LLM.
-4. If child elements reference `<defs>` (gradients, masks, clipPaths) — inline them into the shapes where possible, otherwise remove them and warn the user (Shisa icons should be simple strokes/fills).
-5. Convert any style attributes (e.g., `style="stroke:#000;stroke-width:2"`) into geometry-only markup by removing the style or moving only non-default visual attributes to the `Shisa` wrapper (see rule 7).
-6. Preserve grouping (`<g>`) only to the extent it affects geometry; otherwise flatten groups and keep their children in document order.
-7. Move non-default visual preferences to the `Shisa` wrapper — for example, if the original used rounded caps, add `strokeLinecap="round"` to `Shisa`. Do NOT copy `stroke`/`strokeWidth`/`fill` to the wrapper unless absolutely required; prefer package defaults (`stroke="currentColor"`, `strokeWidth={2}`).
-8. Ensure the output component accepts standard `SVGProps<SVGSVGElement>` and spreads `...props` onto `Shisa` so callers can override as needed.
-9. Keep the same geometry; do not scale or translate coordinates unless the SVG's `viewBox` indicates non-24x24 artwork — if the artwork is not 24x24, add a comment and preserve `viewBox` so maintainers can review scaling.
-10. Small-icon fill exception: base this decision on the dominant glyph's geometry (the bounding box of all shape elements), not the overall `viewBox`. If the dominant glyph bounding box width and height are both <= 4 units, produce a filled icon instead of a stroked icon. Deterministic measurement rule for LLMs/scripts:
-
-- Compute minX/minY and maxX/maxY across all shapes using their geometry attributes (`d` commands, `x`/`y`/`width`/`height` for rects, `cx`/`cy`/`r` for circles, points for polygons, etc.).
-- glyphWidth = maxX - minX; glyphHeight = maxY - minY.
-- If glyphWidth <= 4 AND glyphHeight <= 4 then treat as a small glyph and convert to a filled icon.
-  In that case:
-- Remove any `stroke`/`stroke-width` attributes from the shapes.
-- Set `fill="currentColor"` on the shape elements (or set `fill` on `Shisa`) and do not add `stroke` or `strokeWidth` to the wrapper.
-- Add a short comment in the generated file noting the icon was converted to a filled glyph because its dominant glyph bounding box is small.
+2. Remove all root-level attributes from `<svg>` completely. The `Shisa` wrapper will handle the `viewBox` and sizing.
+3. **React/TSX camelCasing:** Ensure all remaining SVG attributes are converted to camelCase for React (e.g., `stroke-linecap` becomes `strokeLinecap`, `stroke-linejoin` becomes `strokeLinejoin`, `stroke-width` becomes `strokeWidth`, `fill-rule` becomes `fillRule`).
+4. Strip any `stroke`, `stroke-width`, `stroke-linecap`, `stroke-linejoin`, `fill`, `style`, `class`, and `id` from child shape elements unless they deviate from the default icon style. The `Shisa` wrapper provides the default `stroke="currentColor"`, `strokeWidth={2}`, `strokeLinecap="round"`, `strokeLinejoin="round"`, and `fill="none"`.
+5. Only keep `strokeLinecap` and `strokeLinejoin` on the individual path/shape elements if they are explicitly defined and deviate from the default `"round"` value.
+6. If child elements reference `<defs>` (gradients, masks, clipPaths) — inline them into the shapes where possible, otherwise remove them and warn the user (Shisa icons should be simple strokes/fills).
+7. Preserve grouping (`<g>`) only to the extent it affects geometry (like transforms); otherwise flatten groups and keep their children in document order.
+8. Small-icon fill exception: base this decision on the dominant glyph's geometry (the bounding box of all shape elements), not the overall `viewBox`. If the dominant glyph bounding box width and height are both <= 4 units, produce a filled icon instead of a stroked icon. Deterministic measurement rule for LLMs/scripts:
+   - Compute minX/minY and maxX/maxY across all shapes using their geometry attributes (`d` commands, `x`/`y`/`width`/`height` for rects, `cx`/`cy`/`r` for circles, points for polygons, etc.).
+   - glyphWidth = maxX - minX; glyphHeight = maxY - minY.
+   - If glyphWidth <= 4 AND glyphHeight <= 4 then treat as a small glyph and convert to a filled icon.
+   - In that case: Remove any `stroke`/`strokeWidth` attributes from the shapes, set `fill="currentColor"` on the shape elements, and do not add `stroke` or `strokeWidth` to the wrapper.
+   - Add a short comment in the generated file noting the icon was converted to a filled glyph because its dominant glyph bounding box is small.
 
 ## Output format (TSX component template)
 
@@ -31,48 +32,24 @@ Return a single file with this structure — replace `MyIcon` and the shapes blo
 
 ```tsx
 import { SVGProps } from "react";
-import { Shisa } from "shisa-icon";
+import Shisa from "../shisa";
 
-const ShisaMyIcon = ({ ...props }: SVGProps<SVGSVGElement>) => (
-  // Add any non-default visual props here (e.g. strokeLinecap="round")
-  <Shisa {...props}>/* INSERT CLEANED SHAPES HERE */</Shisa>
+const MyIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...props }) => (
+  <Shisa {...props}>
+    {/* INSERT CLEANED AND CAMELCASED SHAPES HERE */}
+  </Shisa>
 );
 
-export default ShisaMyIcon;
+export default MyIcon;
 ```
 
-## Naming conventions (file + component)
+## Naming conventions
 
-When producing the TSX file, follow these rules so the project stays consistent with existing icons:
-
-- File name: use kebab-case (lowercase, hyphen separated) with no `shisa-` prefix. Example: `checked-box.tsx`, `arrow-left.tsx`, `star.tsx`.
-- Component name: use `Shisa` + PascalCase derived from the file name (capitalize each segment and remove hyphens). Example mappings:
-  - `checked-box.tsx` -> `ShisaCheckedBox`
-  - `arrow-left.tsx` -> `ShisaArrowLeft`
-  - `star.tsx` -> `ShisaStar`
-- Export: default-export the component as the file's primary export (e.g., `export default ShisaStar;`).
-- Location: place the generated file under `package/src/icons/` so it matches the package layout.
-
-These conventions let consumers import icons like `import { ShisaStar } from "shisa-icon";` while keeping repository filenames short and consistent.
-
-## Small, deterministic transformation checklist
-
-When processing the SVG, apply these transformations:
-
-- Remove root attributes: `width`, `height`, `xmlns`, `xmlns:xlink`, `data-*`, `class`, `id`.
-- Keep `viewBox` only if present; prefer `viewBox="0 0 24 24"`.
-- For each child element (`path`, `rect`, `circle`, `line`, `polyline`, `polygon`, `g`):
-  - Remove presentation attributes: `stroke`, `stroke-width`, `stroke-linecap`, `stroke-linejoin`, `fill`, `fill-rule`, `style`, `class`, `id`.
-  - Keep geometry attributes exactly: `d`, `x`, `y`, `width`, `height`, `rx`, `cx`, `cy`, `r`, `points`.
-  - If `transform` exists and is essential, keep it; otherwise remove it.
-- Flatten `<g>` groups unless they carry transforms or are required for geometry; preserve child order.
-- Remove `<defs>` and anything referencing external resources; if complex effects are used (filters/gradients/masks) output a warning comment and leave the shapes (but note the effect can't be reproduced with plain Shisa shapes).
-
-## What to do with common Figma artifacts
-
-- `style` strings (e.g. `style="stroke:#000;stroke-width:2"`): strip them. If they encode `strokeLinecap` or `strokeLinejoin`, move those specific non-default values to the `Shisa` wrapper.
-- `fill` attributes: remove them. If the icon used a filled shape intentionally (not a stroke), keep the `path` but remove `fill`. Shisa icons typically use stroke-only icons; if your icon is filled, add a short comment `// NOTE: original used fill — verify visually`.
-- `transform` on groups: when possible, apply transform to child geometry (flatten) — if not trivial, preserve `transform`.
+- **File name:** use kebab-case (lowercase, hyphen separated) with no `shisa-` prefix. Example: `checked-box.tsx`, `arrow-left.tsx`, `star.tsx`.
+- **Component name:** use PascalCase derived from the file name without the `Shisa` prefix for the internal component. Example: `CheckedBox`, `ArrowLeft`, `Star`.
+- **Index Export:** When exporting in `package/src/index.ts`, alias the default export by adding the `Shisa` prefix. Maintain alphabetical order in `index.ts`.
+  Example mapping in `index.ts`:
+  `export { default as ShisaCheckedBox } from "./icons/checked-box";`
 
 ## Before / after example (Figma → Shisa)
 
@@ -87,16 +64,16 @@ Input (Figma SVG snippet):
 </svg>
 ```
 
-LLM output (cleaned shapes inserted into `Shisa` — note viewBox handling and visual prefs):
+LLM output (cleaned shapes inserted into `Shisa` — note camelCasing and stripping of defaults):
 
 ```tsx
 import { SVGProps } from "react";
-import { Shisa } from "shisa-icon";
+import Shisa from "../shisa";
 
-const ExampleIcon = ({ ...props }: SVGProps<SVGSVGElement>) => (
+const ExampleIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...props }) => (
   <Shisa {...props}>
     <rect x="2" y="2" width="44" height="44" rx="6" />
-    <path d="M12 24L24 12L36 24" />
+    <path d="M12 24L24 12L36 24" strokeLinecap="round" />
   </Shisa>
 );
 
